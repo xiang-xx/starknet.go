@@ -9,8 +9,8 @@ import (
 	"sync"
 
 	"github.com/NethermindEth/juno/core/felt"
-	"github.com/NethermindEth/starknet.go/curve"
-	"github.com/NethermindEth/starknet.go/utils"
+	"github.com/xiang-xx/starknet.go/curve"
+	"github.com/xiang-xx/starknet.go/utils"
 )
 
 type Keystore interface {
@@ -26,7 +26,9 @@ type MemKeystore struct {
 // NewMemKeystore initializes and returns a new instance of MemKeystore.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *MemKeystore: a pointer to MemKeystore.
 func NewMemKeystore() *MemKeystore {
@@ -126,7 +128,9 @@ func sign(ctx context.Context, msgHash *big.Int, key *big.Int) (x *big.Int, y *b
 // GetRandomKeys gets a random set of pub-priv keys.
 // Note: This should be used for testing purposes only, do NOT send real funds to these addresses.
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *MemKeystore: a pointer to a MemKeystore instance
 // - *felt.Felt: a pointer to a public key as a felt.Felt

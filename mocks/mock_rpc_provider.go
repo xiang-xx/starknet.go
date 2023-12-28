@@ -13,7 +13,7 @@ import (
 	reflect "reflect"
 
 	felt "github.com/NethermindEth/juno/core/felt"
-	rpc "github.com/NethermindEth/starknet.go/rpc"
+	rpc "github.com/xiang-xx/starknet.go/rpc"
 	gomock "github.com/golang/mock/gomock"
 )
 

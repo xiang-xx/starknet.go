@@ -5,7 +5,6 @@ import (
 	"errors"
 
 	"github.com/NethermindEth/juno/core/felt"
-	"github.com/ethereum/go-ethereum/rpc"
 )
 
 // ErrNotFound is returned by API methods if the requested item does not exist.
@@ -15,14 +14,14 @@ var (
 
 // Provider provides the provider for starknet.go/rpc implementation.
 type Provider struct {
-	c       callCloser
+	c       CallCloser
 	chainID string
 }
 
 // NewProvider creates a new Provider instance with the given RPC (`go-ethereum/rpc`) client.
 //
 // It takes a *rpc.Client as a parameter and returns a pointer to a Provider struct.
-func NewProvider(c *rpc.Client) *Provider {
+func NewProvider(c CallCloser) *Provider {
 	return &Provider{c: c}
 }
 

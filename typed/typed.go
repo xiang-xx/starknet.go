@@ -8,8 +8,8 @@ import (
 	"regexp"
 
 	"github.com/NethermindEth/juno/core/felt"
-	"github.com/NethermindEth/starknet.go/curve"
-	"github.com/NethermindEth/starknet.go/utils"
+	"github.com/xiang-xx/starknet.go/curve"
+	"github.com/xiang-xx/starknet.go/utils"
 )
 
 type TypedData struct {
@@ -155,12 +155,13 @@ func (td TypedData) GetMessageHash(account *big.Int, msg TypedMessage, sc curve.
 // GetTypedMessageHash calculates the hash of a typed message using the provided StarkCurve.
 //
 // Parameters:
-//  - inType: the type of the message
-//  - msg: the typed message
-//  - sc: the StarkCurve used for hashing
+//   - inType: the type of the message
+//   - msg: the typed message
+//   - sc: the StarkCurve used for hashing
+//
 // Returns:
-//  - hash: the calculated hash
-//  - err: any error if any
+//   - hash: the calculated hash
+//   - err: any error if any
 func (td TypedData) GetTypedMessageHash(inType string, msg TypedMessage, sc curve.StarkCurve) (hash *big.Int, err error) {
 	prim := td.Types[inType]
 	elements := []*big.Int{prim.Encoding}

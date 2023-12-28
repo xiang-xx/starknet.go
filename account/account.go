@@ -7,10 +7,10 @@ import (
 
 	"github.com/NethermindEth/juno/core/crypto"
 	"github.com/NethermindEth/juno/core/felt"
-	"github.com/NethermindEth/starknet.go/curve"
-	"github.com/NethermindEth/starknet.go/hash"
-	"github.com/NethermindEth/starknet.go/rpc"
-	"github.com/NethermindEth/starknet.go/utils"
+	"github.com/xiang-xx/starknet.go/curve"
+	"github.com/xiang-xx/starknet.go/hash"
+	"github.com/xiang-xx/starknet.go/rpc"
+	"github.com/xiang-xx/starknet.go/utils"
 )
 
 var (

@@ -2,10 +2,10 @@ package hash
 
 import (
 	"github.com/NethermindEth/juno/core/felt"
-	"github.com/NethermindEth/starknet.go/contracts"
-	"github.com/NethermindEth/starknet.go/curve"
-	"github.com/NethermindEth/starknet.go/rpc"
-	"github.com/NethermindEth/starknet.go/utils"
+	"github.com/xiang-xx/starknet.go/contracts"
+	"github.com/xiang-xx/starknet.go/curve"
+	"github.com/xiang-xx/starknet.go/rpc"
+	"github.com/xiang-xx/starknet.go/utils"
 )
 
 // ComputeHashOnElementsFelt computes the hash on elements of a Felt array.

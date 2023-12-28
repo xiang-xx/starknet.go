@@ -3,11 +3,9 @@ package rpc
 import (
 	"context"
 	"encoding/json"
-
-	ethrpc "github.com/ethereum/go-ethereum/rpc"
 )
 
-type callCloser interface {
+type CallCloser interface {
 	CallContext(ctx context.Context, result interface{}, method string, args ...interface{}) error
 	Close()
 }
@@ -22,7 +20,7 @@ type callCloser interface {
 // - args: variadic and can be used to pass additional arguments to the RPC method
 // Returns:
 // - error: an error if any occurred during the function call
-func do(ctx context.Context, call callCloser, method string, data interface{}, args ...interface{}) error {
+func do(ctx context.Context, call CallCloser, method string, data interface{}, args ...interface{}) error {
 	var raw json.RawMessage
 	err := call.CallContext(ctx, &raw, method, args...)
 	if err != nil {
@@ -35,15 +33,4 @@ func do(ctx context.Context, call callCloser, method string, data interface{}, a
 		return err
 	}
 	return nil
-}
-
-// NewClient creates a new ethrpc.Client instance.
-//
-// Parameters:
-// - url: the URL of the RPC endpoint
-// Returns:
-// - *ethrpc.Client: a new ethrpc.Client
-// - error: an error if any occurred
-func NewClient(url string) (*ethrpc.Client, error) {
-	return ethrpc.DialContext(context.Background(), url)
 }

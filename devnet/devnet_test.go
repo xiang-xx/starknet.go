@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/NethermindEth/starknet.go/utils"
+	"github.com/xiang-xx/starknet.go/utils"
 )
 
 // TestDevnet_IsAlive tests the IsAlive method of the Devnet struct.
@@ -16,7 +16,8 @@ import (
 // Parameters:
 // - t: is the testing.T instance for running the test
 // Returns:
-//   none
+//
+//	none
 func TestDevnet_IsAlive(t *testing.T) {
 	d := NewDevNet()
 	if !d.IsAlive() {
@@ -30,9 +31,11 @@ func TestDevnet_IsAlive(t *testing.T) {
 // account addresses are valid.
 //
 // Parameters:
-//  - t: is the testing.T instance for running the test
+//   - t: is the testing.T instance for running the test
+//
 // Returns:
-//  none
+//
+//	none
 func TestDevnet_Accounts(t *testing.T) {
 	d := NewDevNet()
 	accounts, err := d.Accounts()
@@ -52,7 +55,8 @@ func TestDevnet_Accounts(t *testing.T) {
 // Parameters:
 // - t: is the testing.T instance for running the test
 // Returns:
-//   none
+//
+//	none
 func TestDevnet_FeeToken(t *testing.T) {
 	d := NewDevNet()
 	token, err := d.FeeToken()
@@ -74,7 +78,8 @@ func TestDevnet_FeeToken(t *testing.T) {
 // Parameters:
 // - t: is the testing.T instance for running the test
 // Returns:
-//   none
+//
+//	none
 func TestDevnet_Mint(t *testing.T) {
 	d := NewDevNet()
 	amount := big.NewInt(int64(1000000000000000000))

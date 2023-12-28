@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/NethermindEth/starknet.go/utils"
+	"github.com/xiang-xx/starknet.go/utils"
 )
 
 // BenchmarkPedersenHash benchmarks the performance of the PedersenHash function.
@@ -17,7 +17,8 @@ import (
 // Parameters:
 // - b: a *testing.B value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func BenchmarkPedersenHash(b *testing.B) {
 	suite := [][]*big.Int{
 		{utils.HexToBN("0x12773"), utils.HexToBN("0x872362")},
@@ -41,7 +42,8 @@ func BenchmarkPedersenHash(b *testing.B) {
 // Parameters:
 // - b: a *testing.B value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func BenchmarkCurveSign(b *testing.B) {
 	type data struct {
 		MessageHash *big.Int
@@ -79,7 +81,8 @@ func BenchmarkCurveSign(b *testing.B) {
 // Parameters:
 // - b: a *testing.B value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func BenchmarkSignatureVerify(b *testing.B) {
 	private, _ := Curve.GetRandomPrivateKey()
 	x, y, _ := Curve.PrivateToPoint(private)
@@ -105,7 +108,8 @@ func BenchmarkSignatureVerify(b *testing.B) {
 // Parameters:
 // - t: a *testing.T value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func TestGeneral_PrivateToPoint(t *testing.T) {
 	x, _, err := Curve.PrivateToPoint(big.NewInt(2))
 	if err != nil {
@@ -125,7 +129,8 @@ func TestGeneral_PrivateToPoint(t *testing.T) {
 // Parameters:
 // - t: a *testing.T value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func TestGeneral_PedersenHash(t *testing.T) {
 	testPedersen := []struct {
 		elements []*big.Int
@@ -167,7 +172,8 @@ func TestGeneral_PedersenHash(t *testing.T) {
 // Parameters:
 // - t: a *testing.T value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func TestGeneral_DivMod(t *testing.T) {
 	testDivmod := []struct {
 		x        *big.Int
@@ -205,7 +211,8 @@ func TestGeneral_DivMod(t *testing.T) {
 // Parameters:
 // - t: a *testing.T value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func TestGeneral_Add(t *testing.T) {
 	testAdd := []struct {
 		x         *big.Int
@@ -251,7 +258,8 @@ func TestGeneral_Add(t *testing.T) {
 // Parameters:
 // - t: a *testing.T value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func TestGeneral_MultAir(t *testing.T) {
 	testMult := []struct {
 		r         *big.Int
@@ -294,7 +302,8 @@ func TestGeneral_MultAir(t *testing.T) {
 // Parameters:
 // - t: a *testing.T value representing the testing context
 // Returns:
-//  none
+//
+//	none
 func TestGeneral_ComputeHashOnElements(t *testing.T) {
 	hashEmptyArray, err := Curve.ComputeHashOnElements([]*big.Int{})
 	expectedHashEmmptyArray := utils.HexToBN("0x49ee3eba8c1600700ee1b87eb599f16716b0b1022947733551fde4050ca6804")
@@ -325,7 +334,8 @@ func TestGeneral_ComputeHashOnElements(t *testing.T) {
 // Parameters:
 // - t: The testing.T object for running the test.
 // Returns:
-//   none
+//
+//	none
 func TestGeneral_HashAndSign(t *testing.T) {
 	hashy, err := Curve.HashElements([]*big.Int{
 		big.NewInt(1953658213),
@@ -362,7 +372,8 @@ func TestGeneral_HashAndSign(t *testing.T) {
 // Parameters:
 // - t: The testing.T object for running the test
 // Returns:
-//   none
+//
+//	none
 func TestGeneral_ComputeFact(t *testing.T) {
 	testFacts := []struct {
 		programHash   *big.Int
@@ -394,7 +405,8 @@ func TestGeneral_ComputeFact(t *testing.T) {
 // Parameters:
 // - t: The testing.T object for running the test
 // Returns:
-//   none
+//
+//	none
 func TestGeneral_BadSignature(t *testing.T) {
 	hash, err := Curve.PedersenHash([]*big.Int{utils.HexToBN("0x12773"), utils.HexToBN("0x872362")})
 	if err != nil {
@@ -439,7 +451,8 @@ func TestGeneral_BadSignature(t *testing.T) {
 // Parameters:
 // - t: The testing.T object for running the test
 // Returns:
-//   none
+//
+//	none
 func TestGeneral_Signature(t *testing.T) {
 	testSignature := []struct {
 		private *big.Int
@@ -507,7 +520,8 @@ func TestGeneral_Signature(t *testing.T) {
 // Parameters:
 // - t: The testing.T object for running the test
 // Returns:
-//   none
+//
+//	none
 func TestGeneral_SplitFactStr(t *testing.T) {
 	data := []map[string]string{
 		{"input": "0x3", "h": "0x0", "l": "0x3"},

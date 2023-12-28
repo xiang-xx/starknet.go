@@ -5,10 +5,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/NethermindEth/starknet.go/contracts"
-	"github.com/NethermindEth/starknet.go/rpc"
 	"github.com/test-go/testify/assert"
 	"github.com/test-go/testify/require"
+	"github.com/xiang-xx/starknet.go/contracts"
+	"github.com/xiang-xx/starknet.go/rpc"
 )
 
 // TestUnmarshalContractClass is a test function to unmarshal a contract class.
@@ -19,7 +19,8 @@ import (
 // Parameters:
 // - t: The testing.T instance for running the test
 // Returns:
-//   none
+//
+//	none
 func TestUnmarshalContractClass(t *testing.T) {
 	content, err := os.ReadFile("./tests/hello_starknet_compiled.sierra.json")
 	require.NoError(t, err)
@@ -40,7 +41,8 @@ func TestUnmarshalContractClass(t *testing.T) {
 // Parameters:
 // - t: The testing.T instance for running the test
 // Returns:
-//   none
+//
+//	none
 func TestUnmarshalCasmClass(t *testing.T) {
 	casmClass, err := contracts.UnmarshalCasmClass("./tests/hello_starknet_compiled.casm.json")
 	require.NoError(t, err)
