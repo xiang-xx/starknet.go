@@ -5,7 +5,6 @@ go 1.21
 require (
 	github.com/NethermindEth/juno v0.3.1
 	github.com/golang/mock v1.6.0
-	github.com/joho/godotenv v1.4.0
 	github.com/test-go/testify v1.1.4
 	golang.org/x/crypto v0.2.0
 )

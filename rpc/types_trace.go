@@ -24,8 +24,8 @@ type SimulateTransactionOutput struct {
 }
 
 type SimulatedTransaction struct {
-	TxnTrace `json:"transaction_trace"`
-	FeeEstimate
+	TxnTrace    `json:"transaction_trace"`
+	FeeEstimate `json:"fee_estimation"`
 }
 
 type TxnTrace interface{}
