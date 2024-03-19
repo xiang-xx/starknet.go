@@ -26,7 +26,9 @@ var _ BlockTransaction = BlockL1HandlerTxn{}
 // Hash returns the transaction hash of the BlockInvokeTxnV0.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockInvokeTxnV0) Hash() *felt.Felt {
@@ -36,16 +38,21 @@ func (tx BlockInvokeTxnV0) Hash() *felt.Felt {
 // Hash returns the hash of the BlockInvokeTxnV1 transaction.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockInvokeTxnV1) Hash() *felt.Felt {
 	return tx.TransactionHash
 }
+
 // Hash returns the transaction hash of the BlockDeclareTxnV0.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockDeclareTxnV0) Hash() *felt.Felt {
@@ -55,7 +62,9 @@ func (tx BlockDeclareTxnV0) Hash() *felt.Felt {
 // Hash returns the transaction hash of the BlockDeclareTxnV1.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockDeclareTxnV1) Hash() *felt.Felt {
@@ -65,7 +74,9 @@ func (tx BlockDeclareTxnV1) Hash() *felt.Felt {
 // Hash returns the transaction hash of the BlockDeclareTxnV2.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockDeclareTxnV2) Hash() *felt.Felt {
@@ -75,7 +86,9 @@ func (tx BlockDeclareTxnV2) Hash() *felt.Felt {
 // Hash returns the hash of the BlockDeployTxn.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockDeployTxn) Hash() *felt.Felt {
@@ -85,7 +98,9 @@ func (tx BlockDeployTxn) Hash() *felt.Felt {
 // Hash returns the Felt hash of the BlockDeployAccountTxn.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockDeployAccountTxn) Hash() *felt.Felt {
@@ -95,7 +110,9 @@ func (tx BlockDeployAccountTxn) Hash() *felt.Felt {
 // Hash returns the hash of the BlockL1HandlerTxn.
 //
 // Parameters:
-//  none
+//
+//	none
+//
 // Returns:
 // - *felt.Felt: the transaction hash
 func (tx BlockL1HandlerTxn) Hash() *felt.Felt {
@@ -130,6 +147,11 @@ type BlockDeclareTxnV1 struct {
 type BlockDeclareTxnV2 struct {
 	TransactionHash *felt.Felt `json:"transaction_hash"`
 	DeclareTxnV2
+}
+
+type BlockDeclareTxnV3 struct {
+	TransactionHash *felt.Felt `json:"transaction_hash"`
+	DeclareTxnV3
 }
 
 type BlockDeployTxn struct {
@@ -193,6 +215,10 @@ func unmarshalBlockTxn(t interface{}) (BlockTransaction, error) {
 				remarshal(casted, &txn)
 				return txn, nil
 			case "0x2":
+				var txn BlockDeclareTxnV2
+				remarshal(casted, &txn)
+				return txn, nil
+			case "0x3":
 				var txn BlockDeclareTxnV2
 				remarshal(casted, &txn)
 				return txn, nil

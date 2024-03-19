@@ -283,6 +283,10 @@ func unmarshalTxn(t interface{}) (Transaction, error) {
 				var txn DeclareTxnV2
 				remarshal(casted, &txn)
 				return txn, nil
+			case "0x3":
+				var txn DeclareTxnV3
+				remarshal(casted, &txn)
+				return txn, nil
 			default:
 				return nil, errors.New("Internal error with Declare transaction version and unmarshalTxn()")
 			}
